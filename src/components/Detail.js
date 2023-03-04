@@ -44,7 +44,7 @@ const Detail = ({exerciseDetail}) => {
                 {extraDetail.map((item) => (
                     <Stack key={item.name} direction="row" gap="24px" alignItems="center">
                         <Button sx={{background: "#fff", borderRadius:'50%'}}>
-                            <img width="50px"src={item.icon} alt/>
+                            <img width="50px"src={item.icon} alt={item.name}/>
                         </Button>
                         <Typography variant="h5" textTransform="capitalize">
                             {item.name}

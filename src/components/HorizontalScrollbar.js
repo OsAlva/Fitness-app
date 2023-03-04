@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { Box, Typography } from '@mui/material';
 import BodyPart from './BodyPart';
 import {ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu'
+import ExerciseCard from './ExerciseCard';
 
 import RightArrowIcon from '../assets/icons/right-arrow.png';
 import LeftArrowIcon from '../assets/icons/left-arrow.png';
@@ -29,7 +30,7 @@ import LeftArrowIcon from '../assets/icons/left-arrow.png';
 
 
 
-const HorizontalScrollbar = ({data, bodyPart,setBodyPart}) => {
+const HorizontalScrollbar = ({data, bodyPart,setBodyPart, isBodyParts}) => {
   
 
   return (
@@ -39,9 +40,11 @@ const HorizontalScrollbar = ({data, bodyPart,setBodyPart}) => {
                 key={item.id || item}
                 item={item.id ||item}
                 title={item.id || item}
-                m="0 40px"
+                m="10px"
             >
-                <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart}/>
+                {isBodyParts 
+                  ? <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart}/>
+                  : <ExerciseCard exercise={item}/>}
             </Box>
     )
         ) : console.log("no es un array")}
